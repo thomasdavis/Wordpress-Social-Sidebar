@@ -34,7 +34,7 @@ if(!is_admin()){
 }
 function include_socialsidebar(){
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script('social-sidebar', plugins_url('js/social-sidebar/jquery.social-sidebar.min.js?1'));
+	wp_enqueue_script('social-sidebar', plugins_url('social-sidebar/js/social-sidebar/jquery.social-sidebar.js'));
 }
 function embed_socialsidebar(){
 	if( get_option("social_offset")){
