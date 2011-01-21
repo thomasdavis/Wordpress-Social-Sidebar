@@ -31,6 +31,17 @@ add_action('admin_menu', 'socialsidebar');
 if(!is_admin()){
 	add_action('wp_print_scripts', 'include_socialsidebar');
 	add_action('wp_footer', 'embed_socialsidebar');
+} else {
+
+add_action('wp_print_scripts', 'load_custom_scripts');
+}
+function load_custom_scripts() {
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jflow' );
+	
+
+    wp_enqueue_script( 'jquery-ui-core' );
+    wp_enqueue_script( 'jquery-ui-tabs' );
 }
 function include_socialsidebar(){
 	wp_enqueue_script( 'jquery' );
@@ -106,30 +117,72 @@ function socialsidebar_options() {
   }
 
   echo '<div class="wrap">';
+  
   echo '<h2>Social Sidebar</h2>';
-  echo '<p>Enter your social network links in the fields below, any and all fields can be left blank but if you would like a button to appear at the very least you need to put a twitter username or facebook/linkedin link.   If you need any help, I can be found <a href="http://thomasalwyndavis.com">here</a></p>';
+    ?>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" rel="stylesheet" type="text/css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	$("#tabs").tabs();
+	$(".optionsform").click( function(){
+		$("#optionsform").submit();
+		event.preventDefault();
+	})
+});
+</script>
+  <?php
+  
+  echo '<form id="optionsform" method="post" action="options.php">';
   ?>
-  <br />If your feeling generous please donate, I'm going through a really <strong>rough</strong> time and I put alot of effort into keeping plugins up to date for you guys, Thanks!
-<br />Also please follow me on <a href="http://twitter.com/neutralthoughts">twitter</a>, I will follow you back!
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <div id="tabs" style="width: 700px;">
+    <ul>
+        <li><a href="#info">Info</a></li>
+        <li><a href="#tabs-1">Social Media Buttons</a></li>
+        <li><a href="#tabs-2">Custom Buttons</a></li>
+        <li><a href="#tabs-3">Options</a></li>
+        <li class="ui-corner-top ui-state-default ui-state-hover" style="margin-left: 1px; float: right;"><a href="" class="optionsform"  style="color: #fff;">Save</a></li>
+	
+    </ul>
+	<div id="info">
+	  Enter your social network links from the menu above, any and all fields can be left blank but if you would like a button 
+	  to appear at the very least you need to put a twitter username or facebook/linkedin link.   If you need any help, I can be found <a href="http://thomasalwyndavis.com">here</a>.
+	<br />
+	<br />
+	<b>Old Documentation</b>
+	<ul>
+	<li><a href="http://thomasalwyndavis.com/2010/09/socialsidebar-wordpress-plugin/">Blog - Social Sidebar</a></li>
+	<li><a href="http://wordpress.org/extend/plugins/social-sidebar/">Wordpress plugin homepage</a></li>
+	<li><a href="https://github.com/thomasdavis/Wordpress-Social-Sidebar/">GitHub Repository</a></li>
+	</ul>
+	<br />
+	<b>Support</b>
+	<ul>
+	<li><a href="http://wordpress.org/tags/social-sidebar?forum_id=10">Wordpress.org Forums</a></li>
+	<li><a href="https://github.com/thomasdavis/Wordpress-Social-Sidebar/issues">GitHub Issue Tracker</a> <- Reccommended</li>
+	</ul>
+  
+  <br />
+  <table style="width: 100%;">
+  <tr><td style="width: 45%; text-align: center;"> Today you, tomorrow me<br /> <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="FDTK3DWPQMHYQ">
 <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
-</form>
-  <?php
-  
-  echo '<form method="post" action="options.php">';
-  ?>
-  <?php wp_nonce_field('update-options'); ?>
-  <?php
-  echo '<table class="form-table">';
-  echo '<tr valign="top">
-<th scope="row">Pixels from the top (default: 100px)</th>
-<td><input style="width: 400px;" type="text" name="social_offset" value="' . get_option('social_offset') .'" />px</td>
-</tr>';   
+</form><br /><br />Follow me on <a href="http://twitter.com/neutralthoughts">twitter</a></td><td>
+  <script src="http://cartercole.com/gpicons.asp?user=thomasalwyndavis&type=2"></script>
+  </td></tr></table>
 
-echo "<tr><td colspan='2'><h3>Social Media Buttons</h3></td></tr>";
+
+
+	</div>
+    <div id="tabs-1">
+	<?php
+	  echo '<table class="form-table">';
+
  echo '<tr valign="top">
 
 <th scope="row">Twitter <strong>Username</strong></th>
@@ -154,8 +207,14 @@ echo '<tr valign="top">
 echo '<tr valign="top">
 <th scope="row">LinkedIn Image (optional)</th>
 <td><input style="width: 400px;" type="text" name="linkedin_image" value="' . get_option('linkedin_image') .'" /></td>
-</tr>'; 
-echo "<tr><td colspan='2'><h3>Extra Buttons</h3></td></tr>";
+</tr>';    
+echo '</table>';
+?>
+ </div>
+    <div id="tabs-2">
+<?php
+  echo '<table class="form-table">';
+
 echo '<tr valign="top">
 <th scope="row">Extra Button 1 (http://)</th>
 <td><input style="width: 400px;" type="text" name="op1_link" value="' . get_option('op1_link') .'" /></td>
@@ -180,24 +239,29 @@ echo '<tr valign="top">
 <th scope="row">Extra Button Image 3 (http://)</th>
 <td><input style="width: 400px;" type="text" name="op3_image" value="' . get_option('op3_image') .'" /></td>
 </tr>'; 
-echo '<tr valign="top">
-<th scope="row">Let me track who is using this plugin so I can make better informed decisions on updates?</th>
-<td><input style="width: 400px;" type="checkbox" name="publica" ';
-echo get_option('publica');
-if(get_option('publica')=='on' || get_option('publica') === false ){
-echo ' checked ';
-}
 
-
-echo ' /></td>
-</tr>'; 
 echo '</table>';
+?>
+    </div>
+    <div id="tabs-3">
+<?php
+  echo '<table class="form-table">';
+  echo '<tr valign="top">
+<th scope="row">Pixels from the top (default: 100px)</th>
+<td><input style="width: 400px;" type="text" name="social_offset" value="' . get_option('social_offset') .'" />px</td>
+</tr>';   
+echo '</table>';
+?>
+
+    </div>
+</div>
+  <?php wp_nonce_field('update-options'); ?>
+  <?php
+  
 echo '<input type="hidden" name="action" value="update" />';
 echo '<input type="hidden" name="page_options" value="twitter_account,twitter_image,facebook_link,facebook_image,linkedin_link,linkedin_image,social_offset,op3_link,op3_image,op2_link,op2_image,op1_link,op1_image,publica" />';
   echo '</div>';
-echo '<p class="submit">
-<input type="submit" class="button-primary" value="Save Changes" />
-</p>
+echo '
 </form>
 </div>';
 }
