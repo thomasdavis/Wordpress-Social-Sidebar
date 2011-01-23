@@ -1,14 +1,14 @@
 <?php
 /**
  * @package social-sidebar
- * @version 4.0
+ * @version 5.0
  */
 /*
 Plugin Name: Social Sidebar
 Plugin URI: http://thomasalwyndavis.com/2010/09/socialsidebar-jquery-plugin/
-Description: A very simple plugin to add social media buttons to the side of your website.
+Description: Add social media buttons to the side of your website with style and ease.
 Author: Thomas Davis
-Version: 4.0
+Version: 5.0
 Author URI: http://thomasalwyndavis.com/
 */
 /*  Copyright 2010  Thomas Davis  (email : me@thomasalwyndavis.com)
@@ -45,7 +45,7 @@ function load_custom_scripts() {
 }
 function include_socialsidebar(){
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script('social-sidebar', plugins_url('social-sidebar/js/social-sidebar/jquery.social-sidebar.js'));
+	wp_enqueue_script('social-sidebar', 'http://ajax.cdnjs.com/ajax/plugins/jquery.social-sidebar/5.4/jquery.social-sidebar.min.js');
 }
 function embed_socialsidebar(){
 	if( get_option("social_offset")){

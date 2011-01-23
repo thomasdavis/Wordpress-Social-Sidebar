@@ -3,7 +3,7 @@ Contributors: thomasdavis
 Donate link: http://thomasalwyndavis.com/
 Tags: social, sidebar, facebook, twitter, linkedin, thomas, social networking, widget, , plugin,page,google
 Requires at least: 2.0.2
-Tested up to: 3.0.1
+Tested up to: 3.0.4
 Stable tag: Trunk
 
 A popout menu for your website, simple to install and setup, shows social networking icons in a un-obtrusive way.
@@ -49,6 +49,8 @@ http://www.studioicd.com/interior/
 = 2.0 =
 * Support for more widgets and other fixes
 
+= 5.0
+* This plugin is starting to rock
 
 
 `<?php code(); // goes in backticks ?>`
