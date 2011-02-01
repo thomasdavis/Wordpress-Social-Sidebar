@@ -1,7 +1,7 @@
 === Social Sidebar ===
 Contributors: thomasdavis
 Donate link: http://thomasalwyndavis.com/
-Tags: social, sidebar, facebook, twitter, linkedin, thomas, social networking, widget, , plugin,page,google
+Tags: social, sidebar, facebook, twitter, linkedin, thomas, social networking, widget, , plugin,page,google,thomasdavis
 Requires at least: 2.0.2
 Tested up to: 3.0.4
 Stable tag: Trunk

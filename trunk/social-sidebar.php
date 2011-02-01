@@ -1,14 +1,14 @@
 <?php
 /**
  * @package social-sidebar
- * @version 5.0
+ * @version 5.5
  */
 /*
 Plugin Name: Social Sidebar
 Plugin URI: http://thomasalwyndavis.com/2010/09/socialsidebar-jquery-plugin/
 Description: Add social media buttons to the side of your website with style and ease.
 Author: Thomas Davis
-Version: 5.0
+Version: 5.5
 Author URI: http://thomasalwyndavis.com/
 */
 /*  Copyright 2010  Thomas Davis  (email : me@thomasalwyndavis.com)
@@ -120,6 +120,8 @@ function socialsidebar_options() {
   
   echo '<h2>Social Sidebar</h2>';
     ?>
+    <a style="margin-left: 30px;" href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=7499_0_1_13" target="_blank"><img border="0" src="http://www.elegantthemes.com/affiliates/banners/570x100.jpg" width="570" height="100"></a>
+    <br />
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" rel="stylesheet" type="text/css">
 
 
